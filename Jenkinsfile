@@ -30,7 +30,7 @@ pipeline {
                 script { 
                     try { 
                         echo "🧪 Ejecutando pruebas..." 
-                        sh 'npm run test' 
+                        bat 'npm run test' 
                     } catch (Exception e) { 
                         error("❌ Error en la etapa de Test") 
                     } 
@@ -43,7 +43,7 @@ pipeline {
                 script { 
                     try { 
                         echo "🚀 Desplegando aplicación..." 
-                        sh 'npm start &' 
+                        bat 'npm start &' 
                     } catch (Exception e) { 
                         error("❌ Error en la etapa de Deploy") 
                     } 
