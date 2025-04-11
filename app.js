@@ -1,16 +1,16 @@
 
-const express = require('express');
+import express, { json } from 'express';
 const app = express();
-const data = require('./db.json');
+import { users } from './db.json';
 
-app.use(express.json());
+app.use(json());
 
 app.get('/users', (req, res) => {
-  res.status(200).json(data.users);
+  res.status(200).json(users);
 });
 
 app.get('/users/:id', (req, res) => {
-  const user = data.users.find(u => u.id === parseInt(req.params.id, 10));
+  const user = users.find(u => u.id === parseInt(req.params.id, 10));
   if (user) {
     res.status(200).json(user);
   } else {
@@ -18,4 +18,4 @@ app.get('/users/:id', (req, res) => {
   }
 });
 
-module.exports = app;
+export default app;
